@@ -13,7 +13,7 @@ describe("Adding Machine", function() {
 		expect(adder(-1, 0)).toEqual(-1);
 	});
 
-	it("Doesn't equal the wrong thing", function() {
+	it("doesn't equal the wrong thing", function() {
 		expect(adder(4,2)).not.toEqual(0);
 	});
 });
