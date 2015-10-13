@@ -1,10 +1,10 @@
-describe("test function", function() {
+describe("Tester", function() {
 	it("runs!", function() {
 		expect(testMe()).toEqual("I work!");
 	});
 });
 
-describe("Adding Machine", function() {
+describe("Adder", function() {
 	it("adds positive numbers", function() {
 		expect(adder(3, 4)).toEqual(7);
 	});
@@ -25,5 +25,11 @@ describe("Greeter", function() {
 
 	it("works without a name argument", function() {
 		expect(greet()).toContain("name?");
+	});
+});
+
+describe("Appender", function() {
+	it("contains the new word", function() {
+		expect(appendWord("cherry")).toContain("cherry");
 	});
 });

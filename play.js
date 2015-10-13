@@ -15,7 +15,8 @@ function greet(name) {
 	};
 };
 
-function appendItem(item) {
-	var startArray = [1, 3, 5];
-	return startArray.push(item);
-}
+function appendWord(word) {
+	var startArray = ["apple", "berry"];
+	startArray.push(word);
+	return startArray;
+};
