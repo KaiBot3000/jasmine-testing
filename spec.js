@@ -5,7 +5,11 @@ describe("test function", function() {
 });
 
 describe("Adding Machine", function() {
-	it("adds numbers", function() {
+	it("adds positive numbers", function() {
 		expect(add(3, 4)).toEqual(7);
+	});
+
+	it("adds negative numbers", function() {
+		expect(add(-1, 0)).toEqual(-1);
 	});
 });
