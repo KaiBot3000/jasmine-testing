@@ -20,6 +20,6 @@ describe("Greeter", function() {
 	});
 
 	it("works without a name argument", function() {
-		expect(greet()).toEqual("What's your name?");
+		expect(greet()).toContain("name?");
 	});
 });
