@@ -6,10 +6,16 @@ describe("test function", function() {
 
 describe("Adding Machine", function() {
 	it("adds positive numbers", function() {
-		expect(add(3, 4)).toEqual(7);
+		expect(adder(3, 4)).toEqual(7);
 	});
 
 	it("adds negative numbers", function() {
-		expect(add(-1, 0)).toEqual(-1);
+		expect(adder(-1, 0)).toEqual(-1);
+	});
+});
+
+describe("Greeter", function() {
+	it("greets name", function() {
+		expect(greet("Atlas")).toContain("Atlas");
 	});
 });
