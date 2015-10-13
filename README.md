@@ -7,6 +7,6 @@ Jasmine is a tool for testing JavaScript. Here are a few simple examples of how 
 ### The Files
 
 * [play.js] Contains a few JavaScript functions to test
-* [spec.js] Contains the tests write for play.js
-* [SpecRunner.html] This file connects the pieces and displays a report
+* [spec.js] Contains the tests written for play.js
+* [SpecRunner.html] This file connects the pieces and displays a spiffy report
 
