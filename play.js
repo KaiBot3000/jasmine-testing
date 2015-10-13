@@ -14,3 +14,8 @@ function greet(name) {
 		return "What's your name?";
 	};
 };
+
+function appendItem(item) {
+	var startArray = [1, 3, 5];
+	return startArray.push(item);
+}
