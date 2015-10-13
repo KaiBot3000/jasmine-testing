@@ -8,6 +8,9 @@ function adder(num1, num2) {
 };
 
 function greet(name) {
-	var greeting = "Hello, " + name;
-	return greeting;
+	if (name) {
+		return "Hello " + name;
+	} else {
+		return "What's your name?";
+	};
 };

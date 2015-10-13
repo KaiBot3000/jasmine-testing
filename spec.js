@@ -16,6 +16,10 @@ describe("Adding Machine", function() {
 
 describe("Greeter", function() {
 	it("greets name", function() {
-		expect(greet("Atlas")).toContain("Atlas");
+		expect(greet("Atlas")).toEqual("Hello Atlas");
+	});
+
+	it("works without a name argument", function() {
+		expect(greet()).toEqual("What's your name?");
 	});
 });
