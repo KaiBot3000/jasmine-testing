@@ -30,6 +30,10 @@ describe("Greeter", function() {
 	it("works without a name argument", function() {
 		expect(greet()).toContain("name?");
 	});
+
+	it("matches a regex", function() {
+		expect(greet("Ari")).toMatch(/lo/);
+	});
 });
 
 describe("Appender", function() {
