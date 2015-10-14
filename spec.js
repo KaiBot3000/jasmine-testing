@@ -20,6 +20,18 @@ describe("Adder", function() {
 	it("gets close to the right answer", function() {
 		expect(adder(12, 11.5)).toBeCloseTo(23.54, 1);
 	});
+
+	// it("breaks when passed string", function() {
+	// 	expect(function() {
+	// 	    adder("string");
+	// 	}).toThrow();
+	// });
+
+	it("uses toThrow", function() {
+		expect(function() {
+		    calculate("string");
+		}).toThrow();
+	});
 });
 
 describe("Greeter", function() {
