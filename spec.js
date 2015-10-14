@@ -17,7 +17,7 @@ describe("Adder", function() {
 		expect(adder(4,2)).not.toEqual(0);
 	});
 
-	it("Is close to the right answer", function() {
+	it("gets close to the right answer", function() {
 		expect(adder(12, 11.5)).toBeCloseTo(23.54, 1);
 	});
 });
