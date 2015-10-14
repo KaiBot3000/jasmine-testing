@@ -16,6 +16,10 @@ describe("Adder", function() {
 	it("doesn't equal the wrong thing", function() {
 		expect(adder(4,2)).not.toEqual(0);
 	});
+
+	it("Is close to the right answer", function() {
+		expect(adder(12, 11.5)).toBeCloseTo(23.54, 1);
+	});
 });
 
 describe("Greeter", function() {
