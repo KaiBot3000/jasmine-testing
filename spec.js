@@ -1,3 +1,20 @@
+beforeEach(function() {
+	this.addMatchers({
+		toBeFifty: function() {
+			this.message = function() {
+				return "Expected " + this.actual + " to be 50";
+			};
+			return this.actual === 50;
+		}
+	});
+});
+
+
+
+
+
+
+
 describe("Tester", function() {
 	it("runs!", function() {
 		expect(testMe()).toEqual("I work!");
@@ -32,6 +49,12 @@ describe("Adder", function() {
 		    calculate("string");
 		}).toThrow();
 	});
+
+	it("uses a custom matcher", function() {
+		expect(adder(25, 25)).toBeFifty();
+
+		})
+	})
 });
 
 describe("Greeter", function() {
