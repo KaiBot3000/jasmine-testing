@@ -10,9 +10,10 @@
 
 // 	});
 // });
-
+    
 beforeEach(function() {
-  this.addMatchers({
+  // jasmine.getEnv().addMatchers({
+    this.addMatchers({
       toBeLarge: function() {
           this.message = function() {
               return "Expected " + this.actual + " to be large";
@@ -25,10 +26,10 @@ beforeEach(function() {
 // expect(200).toBeLarge();
 
 
-describe("Custom Test", function() {
-	it("runs!", function() {
-		expect(200).toBeLarge();
-	});
+describe("Tester", function() {
+    it("runs!", function() {
+        expect(200).toBeLarge();
+    });
 });
 
 // describe("Tester", function() {
