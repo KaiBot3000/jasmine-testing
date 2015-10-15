@@ -11,10 +11,6 @@ beforeEach(function() {
 
 
 
-
-
-
-
 describe("Tester", function() {
 	it("runs!", function() {
 		expect(testMe()).toEqual("I work!");
@@ -50,11 +46,11 @@ describe("Adder", function() {
 		}).toThrow();
 	});
 
-	it("uses a custom matcher", function() {
-		expect(adder(25, 25)).toBeFifty();
+	// it("uses a custom matcher", function() {
+	// 	expect(adder(25, 25)).toBeFifty();
+	// 	});
+	// });
 
-		})
-	})
 });
 
 describe("Greeter", function() {
