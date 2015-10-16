@@ -2,7 +2,7 @@
 
 # Jasmine Testing Framework
 
-Jasmine is a tool for testing JavaScript. Here are a few simple examples of how to write tests for functions, including making custom matchers. In order to run these test on your own machine, you'll need to download [Jasmine 2.3](http://jasmine.github.io/2.3/introduction.html) and correct the path references in `SpecRunner.html` to point to your files.
+Jasmine is a tool for testing JavaScript. Here are a few simple examples of how to write tests for functions, including making custom matchers using the newer Jasmine syntax. In order to run these test on your own machine, you'll need to download [Jasmine 2.3](http://jasmine.github.io/2.3/introduction.html) and correct the path references in `SpecRunner.html` to point to your files.
 
 ### The Files
 
