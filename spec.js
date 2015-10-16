@@ -12,16 +12,23 @@
 // });
     
 beforeEach(function() {
-  // jasmine.getEnv().addMatchers({
-    this.addMatchers({
-      toBeLarge: function() {
-          this.message = function() {
-              return "Expected " + this.actual + " to be large";
-          };
-          return this.actual > 100;
-      }
+    jasmine.addMatchers({
+      toBeLarge: : function(util, customEqualityTesters) {
+        return {
+            compare: function(actual, expected) {
+                var passed = actual == expected;
+                return {
+                    pass: passed,
+                    message: "Expected " + actual + (passed ? "" : " not") + " to equal " + expected
+
+                };
+            };
+        };
+      };
   });
 });
+
+
 
 // expect(200).toBeLarge();
 
