@@ -1,3 +1,6 @@
+
+// ####### Old-school Jasmine way to make custom Matchers
+
 // beforeEach(function() {
 // 	this.addMatchers({
 
@@ -11,36 +14,25 @@
 // 	});
 // });
 
-describe("Making Custom Matcher", function() {    
-    beforeEach(function() {
-        jasmine.addMatchers({
-          toBeLarge: function(util, customEqualityTesters) {
-            return {
-                compare: function(actual, expected) {
-                    var passed = actual == expected;
-                    return {
-                        pass: passed,
-                        message: "Expected " + actual + (passed ? "" : " not") + " to equal " + expected
+// ####### Jasmine 2.0 way to make custom Matchers (must be included in describe)
 
-                    };
-                }
-            };
-          }
-      });
-        it("uses custom matchers", function() {
-          expect(1).toBeLarge(1);
-        });
-    });
-});
+// describe("Making Custom Matcher", function() {    
+//     beforeEach(function() {
+//         jasmine.addMatchers({
+//           toBeLarge: function(util, customEqualityTesters) {
+//             return {
+//                 compare: function(actual, expected) {
+//                     var passed = actual == expected;
+//                     return {
+//                         pass: passed,
+//                         message: "Expected " + actual + 
+//                                 (passed ? "" : " not") + " to equal " + expected
 
-
-
-// expect(200).toBeLarge();
-
-
-// describe("Tester", function() {
-//     it("runs!", function() {
-//         expect(200).toBeLarge();
+//                     };
+//                 }
+//             };
+//           }
+//       });
 //     });
 // });
 
@@ -97,6 +89,7 @@ describe("Adder", function() {
 		}).toThrow();
 	});
 
+    // Previous custom matcher
 	// it("uses a custom matcher", function() {
 	// 	expect(adder(25, 25)).toBeFifty();
 	// 	});
