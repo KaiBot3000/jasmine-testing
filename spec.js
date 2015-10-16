@@ -1,3 +1,44 @@
+// Custom matcher which tests equality of supplied variables
+var matches = {
+    matches: function(util, customEqualityTesters) {
+        return {
+            compare: function(actual, expected) {
+                var passed = actual == expected;
+                return {
+                    pass: passed,
+                    message: "Expected " + actual + (passed ? "" : " not") 
+                                + " to equal " + expected
+                };
+            }
+        };
+    }
+};
+
+// Custom matcher which tests if result is 50
+var toBeFifty = {
+    toBeFifty: function(util, customEqualityTesters) {
+        return {
+            compare: function(actual, expected) {
+                var result = {};
+
+                result.pass = util.equals(50, 50, customEqualityTesters);
+                result.message = "Expected " + actual + " to be 50";
+
+                return result;
+            }
+        };
+    }
+};
+
+// add custom matchers to jasmine object, so they're available globally
+beforeEach(function() {
+    jasmine.addMatchers(matches);
+    jasmine.addMatchers(toBeFifty);
+});
+
+
+
+
 
 // ####### Old-school Jasmine way to make custom Matchers
 
@@ -14,7 +55,7 @@
 // 	});
 // });
 
-// ####### Jasmine 2.0 way to make custom Matchers (must be included in describe)
+// ####### Other Jasmine way to make custom Matchers (must be included in describe)
 
 // describe("Making Custom Matcher", function() {    
 //     beforeEach(function() {
@@ -40,60 +81,21 @@
 
 describe("Adder", function() {
 
-    beforeEach(function() {
-        jasmine.addMatchers({
-            customMatcher: function(util, customEqualityTesters) {
-                return {
-                    compare: function(actual, expected) {
-                        var passed = actual == expected;
-                        return {
-                            pass: passed,
-                            message: "Expected " + actual + (passed ? "" : " not") 
-                                        + " to equal " + expected
-                        };
-                    }
-                };
-            }
+	it("adds positive numbers", function() {
+		expect(adder(3, 4)).toEqual(7);
+	});
 
+	it("adds negative numbers", function() {
+		expect(adder(-1, 0)).toEqual(-1);
+	});
 
-        })
-    });
+	it("doesn't equal the wrong thing", function() {
+		expect(adder(4,2)).not.toEqual(0);
+	});
 
-
-    beforeEach(function() {
-        jasmine.addMatchers({
-            toBeFifty: function(util, customEqualityTesters) {
-                return {
-                    compare: function(actual, expected) {
-                        var result = {};
-
-                        result.pass = util.equals(50, 50, customEqualityTesters);
-                        result.message = "Expected " + actual + " to be 50";
-
-                        return result;
-                    }
-                }
-            }
-        });
-    });
-
-
-
-	// it("adds positive numbers", function() {
-	// 	expect(adder(3, 4)).toEqual(7);
-	// });
-
-	// it("adds negative numbers", function() {
-	// 	expect(adder(-1, 0)).toEqual(-1);
-	// });
-
-	// it("doesn't equal the wrong thing", function() {
-	// 	expect(adder(4,2)).not.toEqual(0);
-	// });
-
-	// it("gets close to the right answer", function() {
-	// 	expect(adder(12, 11.5)).toBeCloseTo(23.54, 1);
-	// });
+	it("gets close to the right answer", function() {
+		expect(adder(12, 11.5)).toBeCloseTo(23.54, 1);
+	});
 
 	// it("breaks when passed string", function() {
 	// 	expect(function() {
@@ -101,20 +103,16 @@ describe("Adder", function() {
 	// 	}).toThrow();
 	// });
 
-	// it("uses toThrow", function() {
-	// 	expect(function() {
-	// 	    calculate("string");
-	// 	}).toThrow();
-	// });
+	it("uses toThrow", function() {
+		expect(function() {
+		    calculate("string");
+		}).toThrow();
+	});
 
-    // Previous custom matcher
-	// it("uses a custom matcher", function() {
-	// 	expect(adder(25, 25)).toBeFifty();
-	// 	});
-	// });
+    // ###### Custom Matchers!
 
     it("uses a custom matcher", function() {
-        expect(adder(25, 25)).customMatcher(50);
+        expect(adder(25, 25)).matches(50);
     });
 
     it("is fifty", function() {
@@ -123,28 +121,28 @@ describe("Adder", function() {
 
 });
 
-// describe("Tester", function() {
-//     it("runs!", function() {
-//         expect(testMe()).toEqual("I work!");
-//     });
-// });
+describe("Tester", function() {
+    it("runs!", function() {
+        expect(testMe()).toEqual("I work!");
+    });
+});
 
-// describe("Greeter", function() {
-// 	it("greets name", function() {
-// 		expect(greet("Atlas")).toEqual("Hello Atlas");
-// 	});
+describe("Greeter", function() {
+	it("greets name", function() {
+		expect(greet("Atlas")).toEqual("Hello Atlas");
+	});
 
-// 	it("works without a name argument", function() {
-// 		expect(greet()).toContain("name?");
-// 	});
+	it("works without a name argument", function() {
+		expect(greet()).toContain("name?");
+	});
 
-// 	it("matches a regex", function() {
-// 		expect(greet("Ari")).toMatch(/lo/);
-// 	});
-// });
+	it("matches a regex", function() {
+		expect(greet("Ari")).toMatch(/lo/);
+	});
+});
 
-// describe("Appender", function() {
-// 	it("contains the new word", function() {
-// 		expect(appendWord("cherry")).toContain("cherry");
-// 	});
-// });
+describe("Appender", function() {
+	it("contains the new word", function() {
+		expect(appendWord("cherry")).toContain("cherry");
+	});
+});
