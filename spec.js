@@ -50,12 +50,34 @@ describe("Adder", function() {
                             pass: passed,
                             message: "Expected " + actual + (passed ? "" : " not") 
                                         + " to equal " + expected
-                    };
-                }
-            };
-          }
-      });
+                        };
+                    }
+                };
+            }
+
+
+        })
     });
+
+
+    beforeEach(function() {
+        jasmine.addMatchers({
+            toBeFifty: function(util, customEqualityTesters) {
+                return {
+                    compare: function(actual, expected) {
+                        var result = {};
+
+                        result.pass = util.equals(50, 50, customEqualityTesters);
+                        result.message = "Expected " + actual + " to be 50";
+
+                        return result;
+                    }
+                }
+            }
+        });
+    });
+
+
 
 	// it("adds positive numbers", function() {
 	// 	expect(adder(3, 4)).toEqual(7);
@@ -93,6 +115,10 @@ describe("Adder", function() {
 
     it("uses a custom matcher", function() {
         expect(adder(25, 25)).customMatcher(50);
+    });
+
+    it("is fifty", function() {
+        expect(adder(25, 25)).toBeFifty();
     });
 
 });
